@@ -55,7 +55,7 @@ fn fetch_company_to_api_error(error: fetch_company::Error, company_id: i32) -> A
             ApiError {
                 error: "Failed to fetch company".to_string(),
                 error_description: format!(
-                    "Encountered an error while fetching company {company_id}\n{error}" // TODO this could be improved
+                    "Encountered an error while fetching company {company_id}"
                 ),
             }
         }
