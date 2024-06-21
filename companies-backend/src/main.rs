@@ -21,7 +21,7 @@ async fn main() {
     )
     .expect("Failed to init termlogger");
 
-    let app = Router::new().route("/v1/companies/:id", get(get_companies));
+    let router = router();
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 8080));
     let listener = tokio::net::TcpListener::bind(addr)
@@ -30,7 +30,11 @@ async fn main() {
 
     log::info!("Listening on {}", listener.local_addr().unwrap());
 
-    axum::serve(listener, app)
+    axum::serve(listener, router)
         .await
         .expect("Failed to start webserver")
+}
+
+pub fn router() -> Router {
+    Router::new().route("/v1/companies/:id", get(get_companies))
 }
