@@ -1,0 +1,21 @@
+[package]
+name = "companies-backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = { version = "0.7" } # Web server library
+tokio = { version = "1", features = [
+	"full",
+] } # Required by Axum, handles async execution
+tower = { version = "0.4" } # Required by Axum, unlocks webserver extension ecosystem
+
+reqwest = { version = "0.12" } # HTTP request library
+
+serde = { version = "1", features = ["derive"] }           # (De)serialization
+quick-xml = { version = "0.32", features = ["serialize"] } # XML parsing
+
+log = { version = "0.4" }        # Rust official basic level based logging library, BYO writer
+simplelog = { version = "0.12" } # Simple writer for log, has optional terminal and file logging
