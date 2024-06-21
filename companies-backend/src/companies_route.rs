@@ -12,7 +12,7 @@ fn fetch_company_to_api_error(error: fetch_company::Error, company_id: i32) -> A
     match error {
         fetch_company::Error::NotFound(_) => ApiError {
             error: "Company not found".to_string(),
-            error_description: format!("No company with id {company_id} exist."),
+            error_description: format!("No company with id {company_id} exists."),
         },
 
         fetch_company::Error::StatusCode(code) => {
