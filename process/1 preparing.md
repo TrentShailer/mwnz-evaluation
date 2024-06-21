@@ -68,8 +68,11 @@ It mostly boils down to I am currently enjoying Rust and Rust has (in my opinion
 However, when looking into XML extensions for serde, it appears that XML is a complex spec and mapping directly to a type with serde is difficult.
 
 > Due to the complexity of the XML standard and the fact that Serde was developed with JSON in mind, not all Serde concepts apply smoothly to XML. This leads to that fact that some XML concepts are inexpressible in terms of Serde derives and may require manual deserialization.
+>
 > The most notable restriction is the ability to distinguish between elements and attributes, as no other format used by serde has such a conception.
+>
 > Due to that the mapping is performed in a best effort manner.
+>
 > From <https://docs.rs/quick-xml/latest/quick_xml/de/>
 
 For the XML the app will be parsing this shouldn't be an issue but it something that should be kept in mind.
