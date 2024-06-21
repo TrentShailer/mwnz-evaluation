@@ -157,10 +157,12 @@ name = "companies-backend"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "http-body-util",
  "log",
  "quick-xml",
  "reqwest",
  "serde",
+ "serde_json",
  "simplelog",
  "thiserror",
  "tokio",

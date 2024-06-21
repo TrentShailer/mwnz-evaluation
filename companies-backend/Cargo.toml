@@ -11,11 +11,13 @@ tokio = { version = "1", features = [
 	"full",
 ] } # Required by Axum, handles async execution
 tower = { version = "0.4" } # Required by Axum, unlocks webserver extension ecosystem
+http-body-util = "0.1.0" # Used during testing to help with bodies
 
 reqwest = { version = "0.12" } # HTTP request library
 
 serde = { version = "1", features = ["derive"] }           # (De)serialization
 quick-xml = { version = "0.32", features = ["serialize"] } # XML parsing
+serde_json = { version = "1" }                             # Used during testing
 
 log = { version = "0.4" }        # Rust official basic level based logging library, BYO writer
 simplelog = { version = "0.12" } # Simple writer for log, has optional terminal and file logging
