@@ -6,31 +6,12 @@ Webapps that handles `GET /companies/{id}`, on an incoming request needs to send
 
 ## 2 Considerations
 
-### 2.1 Non-200 responses to GET request
-
-- Invalid IDs should 404.
-- Other responses should still 404 to conform to spec.
-
-### 2.2 Malformed XML from GET requests
-
-- Unlikely but case should still be handled.
-- To conform with spec it should 404.
-
-### 2.3 Testing
-
-I need to consider how testable my implementation will be.
-
-### 2.4 Perform HTTP requests
-
-I need to be able to easily perform HTTP requests.
-
-### 2.5 Parse XML
-
-I need to be able to eaily parse XML and handle malformed XML.
-
-### 2.6 Deploy into production
-
-How my implementaion should be deployed.
+- Non-200 responses to GET request, Invalid IDs should 404, other responses should still 404 to conform to spec.
+- Malformed XML from GET requests, unlikely but case should still be handled, to conform with spec it should 404.
+- I need to consider how testable my implementation will be.
+- I need to be able to easily perform HTTP requests.
+- I need to be able to eaily parse XML and handle malformed XML.
+- How my implementaion should be deployed.
 
 ## 3 Language selection
 
