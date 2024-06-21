@@ -19,3 +19,5 @@ quick-xml = { version = "0.32", features = ["serialize"] } # XML parsing
 
 log = { version = "0.4" }        # Rust official basic level based logging library, BYO writer
 simplelog = { version = "0.12" } # Simple writer for log, has optional terminal and file logging
+
+thiserror = { version = "1" } # Easy union error types
