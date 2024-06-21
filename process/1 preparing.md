@@ -19,39 +19,28 @@ The two languages I am most confident in for webapps is Rust and JS/TS.
 
 ### 3.1 Rust
 
-#### Pros
-
-- Great error handling model and ethos in ecosystem - more confidence in correctly handling all errors.
-- Single binary - easy to deploy.
-- Usually lower resurse usage (RAM & CPU).
-- I really enjoy working with it.
-- Strict about correctness.
-- Libraries almost always have excellent documentation & examples.
-
-#### Cons
-
-- Less flexible.
-- Strict about correctness.
-- Harder to hire for - Not a concern for this project but still relevant.
+| Pros                                                                                                  | Cons                                                                    |
+|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| Great error handling model and ethos in ecosystem - more confidence in correctly handling all errors. | Less flexible.                                                          |
+| Single binary - easy to deploy.                                                                       | Strict about correctness.                                               |
+| Usually lower resurse usage (RAM & CPU).                                                              | Harder to hire for - Not a concern for this project but still relevant. |
+| Strict about correctness.                                                                             |                                                                         |
+| Very enjoyable to work with for me.                                                                   |                                                                         |
+| Libraries almost always have excellent documentation & examples.                                      |                                                                         |
 
 ### 3.2 JS/TS
 
-#### Pros
-
-- Super flexible - easy to make changes and quicker to get something working.
-- Easy to hire for - Not a concern for this project but still relevant.
-- Generally less verbose.
-- Don't need to compile for a given target.
-- Pretty enjoyable to work with.
-
-#### Cons
-
-- Exception model & nulls requites more cognitive overhead.
-- Testing is not a language feature.
+| Pros                                                                        | Cons                                                      |
+|-----------------------------------------------------------------------------|-----------------------------------------------------------|
+| Super flexible - easy to make changes and quicker to get something working. | Exception model & nulls requites more cognitive overhead. |
+| Easy to hire for - Not a concern for this project but still relevant.       | Testing is not a language feature.                        |
+| Generally less verbose.                                                     |                                                           |
+| Don't need to compile for a given target.                                   |                                                           |
+| Pretty enjoyable to work with.                                              |                                                           |
 
 ### 3.3 Choice
 
-A lot of the pros and cons aren't neccecarily very relevant for this specific problem, both languages have libraries to be able to complete the challenge.
+A lot of the pros and cons aren't neccecarily very relevant for this specific problem, both languages have libraries to be able to complete the challenge, both languages are easily containerised although Rust just needs to run an executable while JS requires NodeJS.
 
 It mostly boils down to I am currently enjoying Rust and Rust has (in my opinion) a clear and explicit error model, this means that I can be confident that I have handled all the errors the libraries may return correctly.
 
