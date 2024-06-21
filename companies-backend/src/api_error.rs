@@ -8,6 +8,7 @@ pub struct ApiError {
 }
 
 impl IntoResponse for ApiError {
+    /// To match spec, all api errors are 404 errors
     fn into_response(self) -> axum::response::Response {
         (StatusCode::NOT_FOUND, Json(self)).into_response()
     }

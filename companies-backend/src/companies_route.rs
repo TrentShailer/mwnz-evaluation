@@ -7,6 +7,31 @@ use axum::{
 
 use crate::{api_error::ApiError, fetch_company, try_fetch_company, Company};
 
+pub async fn get_companies(Path(id): Path<i32>) -> Response {
+    let xml = match try_fetch_company(id)
+        .await
+        .map_err(|e| fetch_company_to_api_error(e, id))
+    {
+        Ok(xml) => xml,
+        Err(e) => return e.into_response(),
+    };
+
+    let company = match Company::try_from_xml(xml) {
+        Ok(company) => company,
+        Err(e) => {
+            log::error!("Failed to parse company:\n{e}");
+
+            return ApiError {
+                error: "Failed to parse company".to_string(),
+                error_description: format!("Could not parse xml for company with id {id}"),
+            }
+            .into_response();
+        }
+    };
+
+    (StatusCode::OK, Json(company)).into_response()
+}
+
 /// Transforms a fetch_company::Error into a ApiError
 fn fetch_company_to_api_error(error: fetch_company::Error, company_id: i32) -> ApiError {
     match error {
@@ -35,29 +60,4 @@ fn fetch_company_to_api_error(error: fetch_company::Error, company_id: i32) -> A
             }
         }
     }
-}
-
-pub async fn get_companies(Path(id): Path<i32>) -> Response {
-    let xml = match try_fetch_company(id)
-        .await
-        .map_err(|e| fetch_company_to_api_error(e, id))
-    {
-        Ok(xml) => xml,
-        Err(e) => return e.into_response(),
-    };
-
-    let company = match Company::try_from_xml(xml) {
-        Ok(company) => company,
-        Err(e) => {
-            log::error!("Failed to parse company:\n{e}");
-
-            return ApiError {
-                error: "Failed to parse company".to_string(),
-                error_description: format!("Could not parse xml for company with id {id}"),
-            }
-            .into_response();
-        }
-    };
-
-    (StatusCode::OK, Json(company)).into_response()
 }
