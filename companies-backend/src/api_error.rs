@@ -11,8 +11,9 @@ pub struct ApiError {
     pub error_description: String,
 }
 
-/// from https://github.com/tokio-rs/axum/blob/main/examples/customize-path-rejection/src/main.rs<br>
-/// Gives Path extractor ApiError body
+/// from https://github.com/tokio-rs/axum/blob/main/examples/customize-path-rejection/src/main.rs
+///
+/// Gives Path extractor an ApiError body
 pub struct PathExctractor<T>(pub T);
 
 #[async_trait]

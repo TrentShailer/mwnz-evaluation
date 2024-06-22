@@ -11,6 +11,7 @@ pub struct Company {
 }
 
 impl Company {
+    /// Tries to deserialize an XML string into a Company
     pub fn try_from_xml(xml: String) -> Result<Self, quick_xml::DeError> {
         let company = quick_xml::de::from_str(&xml)?;
         Ok(company)

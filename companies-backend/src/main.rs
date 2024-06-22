@@ -14,8 +14,8 @@ pub use company_type::Company;
 pub use fetch_company::try_fetch_company;
 use simplelog::{Config, TermLogger};
 
-#[tokio::main]
 /// Mostly boilerplate to setup logger, router, and tcp listener
+#[tokio::main]
 async fn main() {
     TermLogger::init(
         log::LevelFilter::Info,

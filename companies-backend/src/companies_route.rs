@@ -9,6 +9,11 @@ use crate::{
     fetch_company, try_fetch_company, Company,
 };
 
+/// Handles the /v1/companies/{id} route
+///
+/// Tries to fetch the XML object for a given ID
+///
+/// Transforms the XML object into a `Company` and returns it as JSON.
 pub async fn get_companies(PathExctractor(id): PathExctractor<i32>) -> Response {
     let xml = match try_fetch_company(id)
         .await
@@ -37,7 +42,7 @@ pub async fn get_companies(PathExctractor(id): PathExctractor<i32>) -> Response 
     (StatusCode::OK, Json(company)).into_response()
 }
 
-/// Transforms a fetch_company::Error into an api response
+/// Transforms a `fetch_company::Error` into an api response
 fn fetch_company_to_api_error(error: fetch_company::Error, company_id: i32) -> Response {
     match error {
         fetch_company::Error::NotFound(_) => (
